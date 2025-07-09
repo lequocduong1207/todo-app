@@ -75,16 +75,6 @@ const loginService = async (email, password) => {
             }
         }
 
-        const hashPassword = await bcrypt.hash(password, saltRounds)
-
-        let result = await User.create({
-            email: email,
-            password: hashPassword,
-            role: "DEMO"
-        })
-
-        return result;
-
     } catch (error) {
         console.log(error);
         return null;
