@@ -36,6 +36,9 @@ const loginService = async (email, password) => {
     try {
         const user = await User.findOne({ email: email });
 
+        console.log("JWT_SECRET:", process.env.JWT_SECRET);
+        console.log("JWT_EXPIRES:", process.env.JWT_EXPIRES);
+
         if (user) {
             const isMatchPassword = await bcrypt.compare(password, user.password);
 
