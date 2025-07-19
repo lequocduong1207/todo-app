@@ -1,6 +1,7 @@
 require('dotenv').config();
 const express = require('express'); //commonjs
 const configViewEngine = require('./config/viewEngine');
+const apiRoutes = require('./routes/api.js');
 const connection = require('./config/database');
 const {getHomepage} = require('./controllers/homeControllers')
 var cors = require('cors');
