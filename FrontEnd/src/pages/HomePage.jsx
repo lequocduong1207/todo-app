@@ -1,13 +1,11 @@
 // src/pages/HomePage.jsx
-import React, { useContext } from "react";
-import { Button, Typography, Layout } from "antd";
+import { Button, Typography, Layout, notification} from "antd";
 import { useNavigate } from "react-router-dom";
-import { toast } from "react-toastify";
 import { useUser } from "../context/userContext";
 import ToDoPage from "./TodoPage";
 
-const { Header, Content, Footer } = Layout;
-const { Title, Text } = Typography;
+const { Header} = Layout;
+const { Text } = Typography;
 
 export default function HomePage() {
         const { name, setUser } = useUser();
@@ -21,7 +19,9 @@ export default function HomePage() {
                         name: "",
                         email: ""
                 });
-                toast.info("Đã đăng xuất");
+                notification.success({
+                        message: "Đã đăng xuất",
+                });
                 navigate("/login");
         };
 

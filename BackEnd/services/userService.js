@@ -11,7 +11,7 @@ const createUserService = async (name, email, password) => {
         if (user) {
             return {
                 EC: 3,
-                EM: "User da ton tai"
+                EM: "Email đã tồn tại, vui lòng sử dụng email khác"
             };
         }
 
@@ -42,7 +42,7 @@ const loginService = async (email, password) => {
             if (!isMatchPassword) {
                 return {
                     EC: 2,
-                    EM: "Email/Password khong hop le"
+                    EM: "Email/Password không hợp lệ"
                 }
             } else {
                 const payload = {
@@ -71,20 +71,9 @@ const loginService = async (email, password) => {
         } else {
             return {
                 EC: 1,
-                EM: "Email/Password khong hop le"
+                EM: "Email/Password không hợp lệ"
             }
         }
-
-    } catch (error) {
-        console.log(error);
-        return null;
-    }
-}
-
-const forgotPasswordService = async (email) => {
-    try {
-        const user = await User.findOne({ email: email });
-        return null;
 
     } catch (error) {
         console.log(error);
@@ -95,5 +84,4 @@ const forgotPasswordService = async (email) => {
 module.exports = {
     createUserService,
     loginService,
-    forgotPasswordService,
 }

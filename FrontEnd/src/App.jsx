@@ -5,7 +5,6 @@ import LoginPage from "./pages/Login";
 import LandingPage from "./pages/LandingPage";
 import HomePage from "./pages/HomePage";
 import { Spin } from 'antd';
-import ForgotPassword from "./pages/ForgotPassword";
 
 const PrivateRoute = ({ children }) => {
   const { isAuthenticated, loading } = useUser();
@@ -32,7 +31,6 @@ function App() {
           <Route path="/" element={<LandingPage />} />
           <Route path="/login" element={<LoginPage />} />
           <Route path="/register" element={<Register />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
           <Route
             path="/home"
             element={

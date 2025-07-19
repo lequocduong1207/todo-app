@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Button, Checkbox, Form, Grid, Input, theme, Typography } from "antd";
+import { Button, Checkbox, Form, Grid, Input, theme, Typography, notification} from "antd";
 
 import { LockOutlined, MailOutlined } from "@ant-design/icons";
 
@@ -8,7 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 
 import { loginUserApi } from "../services/api";
 
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useUser } from "../context/userContext";
 
@@ -37,13 +37,16 @@ export default function LoginPage() {
         email: res.user.email
       })
 
-      setTimeout(() => {
-        navigate('/home');
-      }, 1000);
-      toast.success('LOGIN USER');
+      notification.success({
+        message: "Đăng nhập thành công",
+      });
+      navigate('/home');
     }
     else {
-      toast.error(`${res.EM}`);
+      notification.error({
+        message: "Đăng nhập thất bại",
+        description: res.EM
+      });
     }
   };
 
@@ -152,7 +155,6 @@ export default function LoginPage() {
               <Form.Item name="remember" valuePropName="checked" noStyle>
                 <Checkbox>Remember me</Checkbox>
               </Form.Item >
-                <Link to={"/forgot-password"} style={{marginLeft: 60}}>  Forgot password?</Link>
             </Form.Item>
             <Form.Item style={{ marginBottom: "0px" }}>
               <Button block="true" type="primary" htmlType="submit">

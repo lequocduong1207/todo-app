@@ -1,4 +1,4 @@
-const { createUserService, loginService, getUserService, forgotPasswordService} = require('../services/userService.js')
+const { createUserService, loginService, getUserService} = require('../services/userService.js')
 const jwt = require('jsonwebtoken');
 
 const createUser = async (req, res) => {
@@ -17,14 +17,6 @@ const handleLogin = async (req, res) => {
     res.send(data);
 }
 
-const handleForgotPassword = async (req, res) => {
-    const { email } = req.body;
-
-    const data = await forgotPasswordService(email);
-
-    res.send(data);
-}
-
 const getUser = async (req, res) => {
     const data = await getUserService();
 
@@ -38,5 +30,5 @@ const getAccount = (req, res) => {
 }
 
 module.exports = {
-    createUser, handleLogin, getUser, getAccount, handleForgotPassword
+    createUser, handleLogin, getUser, getAccount, 
 }

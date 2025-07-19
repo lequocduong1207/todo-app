@@ -1,11 +1,11 @@
 import React from "react";
 
-import { Button, Checkbox, Form, Grid, Input, theme, Typography } from "antd";
+import { Button, Checkbox, Form, Grid, Input, theme, Typography, notification} from "antd";
 
 import { LockOutlined, MailOutlined } from "@ant-design/icons";
 import { createUserApi } from "../services/api";
 
-import { ToastContainer, toast } from 'react-toastify';
+import { ToastContainer} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Link, useNavigate } from "react-router-dom";
 
@@ -22,13 +22,16 @@ export default function RegisterPage() {
     const res = await createUserApi(user.name, user.email, user.password);
 
     if (res && res.EC !== 3) {
-      setTimeout(() => {
-        toast.success('CREATE USER SUCCESS');
-      }, 1000);
+      notification.success({
+              message: "CREATE USER SUCCESS",
+      });
       navigate("/login");
     }
     else {
-      toast.error(`${res.EM}`);
+      notification.error({
+              description: res.EM,
+              message: "CREATE USER FAILED"
+      });
     }
   };
 

@@ -9,7 +9,6 @@ import {
 } from 'antd';
 import dayjs from 'dayjs';
 import { useNavigate } from 'react-router-dom';
-import { toast } from 'react-toastify';
 import { useState } from 'react';
 
 const { TextArea } = Input;
@@ -32,13 +31,17 @@ const AddTask = () => {
       const res = await addTaskApi(task);
 
       if (res) {
-        setTimeout(() => {
-          toast.success('🎉 Thêm công việc thành công!');
-        }, 500);
+        notification.success({
+              message: "Thêm công việc thành công",
+        });
         form.resetFields(); 
       }
     } catch (err) {
-      toast.error('❌ Có lỗi xảy ra, vui lòng thử lại!');
+      notification.error({
+        message: "Thêm công việc thất bại",
+        description: err.message || "Có lỗi xảy ra khi thêm công việc"
+      });
+      console.error("Error adding task:", err);
     } finally {
       setLoading(false);
     }
