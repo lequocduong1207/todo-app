@@ -17,6 +17,26 @@ A simple and modern Todo List application built with **React** and deployed on *
 * **State Management:** useState, useEffect
 * **Deployment:** Vercel
 
+### 🔐 Authentication with JWT
+
+This app uses **JWT (JSON Web Token)** for user authentication.
+
+* After login/signup, a token is issued and stored in **localStorage**.
+* All protected routes require an `Authorization` header with the following format:
+
+```
+Authorization: Bearer <your_token>
+```
+
+Example:
+
+```http
+GET /api/tasks
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6...
+```
+
+> ⚠️ Token expires in `1 day` by default. Make sure to handle token refresh if needed.
+
 ### 📂 Project Setup
 
 ```bash
