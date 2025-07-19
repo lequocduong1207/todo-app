@@ -1,28 +1,25 @@
-📝 Todo App
-A simple and modern Todo List application built with React and deployed on Vercel.
+## 📝 Todo App
 
-🔗 Live Demo: todo-app-sable-theta.vercel.app
+A simple and modern Todo List application built with **React** and deployed on **Vercel**.
 
-✨ Features
-✅ Add, edit, and delete tasks
+🔗 Live Demo: [todo-app-sable-theta.vercel.app](https://todo-app-sable-theta.vercel.app/)
 
-📅 Calendar view to manage tasks by date
+### ✨ Features
 
-✍️ Inline editing and task completion toggle
+* ✅ Add, edit, and delete tasks
+* 🗕️ Calendar view to manage tasks by date
+* ✍️ Inline editing and task completion toggle
+* 🛆 Persistent data via localStorage (or API-ready structure)
 
-📦 Persistent data via localStorage (or API-ready structure)
+### 🚀 Tech Stack
 
-🚀 Tech Stack
-Frontend: React + Ant Design
+* **Frontend:** React + Ant Design
+* **State Management:** useState, useEffect
+* **Deployment:** Vercel
 
-State Management: useState, useEffect
+### 📂 Project Setup
 
-Deployment: Vercel
-
-📂 Project Setup
-bash
-Copy
-Edit
+```bash
 # 1. Clone the repo
 git clone https://github.com/your-username/todo-app.git
 
@@ -32,3 +29,4 @@ npm install
 
 # 3. Start the app
 npm run dev
+```
